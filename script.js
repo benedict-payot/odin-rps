@@ -41,6 +41,9 @@ function playGame() {
 
     let result;
     let roundResult;
+    let gameResult;
+    const pointsRequired = 5;
+    let gameOver = "false";
 
     function playRound(humanChoice, computerChoice) {
         if(humanSelection === "rock") {
@@ -86,11 +89,31 @@ function playGame() {
         return result;
     }
 
-    roundResult = playRound(humanSelection, computerSelection);
+    if(humanScore === pointsRequired || computerScore === pointsRequired) {
+        return;
+    }
+
+    for(i = 0; i<=pointsRequired; i++) {
+        roundResult = playRound(humanSelection, computerSelection);
+    }
+
+    if(roundResult === "win") {
+        humanScore++;
+        if(humanScore === pointsRequired) {
+            gameResult = "win";
+            gameOver = true;
+        }
+    }
+    else if(roundResult === "lose") {
+        computerScore++;
+        if(computerScore === pointsRequired) {
+            gameResult = "lose";
+            gameOver = true;
+        }
+    }
 
     console.log(roundResult);
     
 }
-
 
 playGame();
