@@ -18,13 +18,13 @@ function getComputerChoice() {
     return choiceConvert(computerPick);
 }
 
-function getHumanChoice() {
-    let choice = prompt("Choose between Rock, Paper, or Scissors");
-    if(choice === null) {
-        return;
-    }
-    return choiceConvert(choice);
-}
+// function getHumanChoice() {
+//     let choice = prompt("Choose between Rock, Paper, or Scissors");
+//     if(choice === null) {
+//         return;
+//     }
+//     return choiceConvert(choice);
+// }
 
 function playRound(humanSelection, computerSelection) {
     if(computerSelection === "rock") {
